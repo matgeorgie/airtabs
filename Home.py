@@ -1,7 +1,6 @@
 import mysql.connector
 from time import sleep
 import streamlit as st
-from deta import Deta
 
 db = mysql.connector.connect(
     host='remotemysql.com',
