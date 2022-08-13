@@ -53,7 +53,7 @@ with st.container():
 
         if signup_submit:
             if email_c and passwd_c and name and country:
-                mycursor.execute(f"SELECT * FROM users WHERE email = '{email_c}'")
+                mycursor.execute(f"SELECT * FROM Users WHERE email = '{email_c}'")
                 myresult = mycursor.fetchall()
                 if myresult == []:
                     mycursor.execute(f"INSERT INTO Users (name, email, passwd, country) VALUES ('{name}', '{email_c}', md5('{passwd_c}'), '{country}')")
