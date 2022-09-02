@@ -7,4 +7,4 @@ AirTabs is a simple, secure platform for booking rooms in the cloud.
 3. Streamlit
 
 ## Live Website
-Check out the live website: [AirTabs](https://tinyurl.com/airtabs)
+Check out the live website: [AirTabs](https://matgeorgie-airtabs-home-vtglue.streamlitapp.com/)
