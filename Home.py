@@ -2,7 +2,13 @@ import mysql.connector
 from time import sleep
 import streamlit as st
 
-db = mysql.connector.connect(**st.secrets.db_credentials)
+db = mysql.connector.connect(
+    host='remotemysql.com',
+    user='gMZazGoWlk',
+    passwd='07OOXPIcI9',
+    database='gMZazGoWlk',
+    port = 3306
+    )
 
 mycursor = db.cursor()
 
@@ -42,13 +48,13 @@ with st.container():
         name = st.text_input('Name', placeholder='Enter your name')
         email_c = st.text_input('Email ID', placeholder='Enter your email')
         passwd_c = st.text_input('Password', placeholder='Enter your password', type = 'password')
-        country = st.text_input('Country', placeholder='Enter your country Code')
+        country = st.text_input('Country', placeholder='Enter your country code')
 
         signup_submit = st.form_submit_button("Sign up")
 
         if signup_submit:
             if email_c and passwd_c and name and country:
-                if len(country) > 3:
+                if len(country) < 3:
                     mycursor.execute(f"SELECT * FROM Users WHERE email = '{email_c}'")
                     myresult = mycursor.fetchall()
                     if myresult == []:
