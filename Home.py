@@ -54,20 +54,23 @@ with st.container():
 
         if signup_submit:
             if email_c and passwd_c and name and country:
-                mycursor.execute(f"SELECT * FROM Users WHERE email = '{email_c}'")
-                myresult = mycursor.fetchall()
-                if myresult == []:
-                    mycursor.execute(f"INSERT INTO Users (name, email, passwd, country) VALUES ('{name}', '{email_c}', md5('{passwd_c}'), '{country}')")
-                    db.commit()
+                if len(country) > 3:
                     mycursor.execute(f"SELECT * FROM Users WHERE email = '{email_c}'")
                     myresult = mycursor.fetchall()
-                    with st.spinner('Creating account...'):
-                        sleep(3)
-                    st.success(f'🟢 Signup Successful. Welcome {myresult[0][1]}')
-                    UID = myresult[0][0]
-                    st.info(f'🔴 Login to access your account')
+                    if myresult == []:
+                        mycursor.execute(f"INSERT INTO Users (name, email, passwd, country) VALUES ('{name}', '{email_c}', md5('{passwd_c}'), '{country}')")
+                        db.commit()
+                        mycursor.execute(f"SELECT * FROM Users WHERE email = '{email_c}'")
+                        myresult = mycursor.fetchall()
+                        with st.spinner('Creating account...'):
+                            sleep(3)
+                        st.success(f'🟢 Signup Successful. Welcome {myresult[0][1]}')
+                        UID = myresult[0][0]
+                        st.info(f'🔴 Login to access your account')
+                    else:
+                        st.error(f'🔴 Email already exists')
                 else:
-                    st.error(f'🔴 Email already exists')
+                    st.error(f'🔴 Invalid country code')
             else:
                 st.error(f'🔴 Please fill in all fields')
 
@@ -82,4 +85,3 @@ with st.container():
                 st.success(f'🟢 Logout Successful')
             else:
                 st.error(f'🔴 You are not logged in')
-                
