@@ -14,10 +14,10 @@ mycursor = db.cursor()
 
 UID = None
 
-st.set_page_config(page_title='AirTab', page_icon='https://cdn-icons-png.flaticon.com/512/2786/2786398.png', layout='wide', initial_sidebar_state='collapsed')
+st.set_page_config(page_title='AirTabs', page_icon='https://cdn-icons-png.flaticon.com/512/2786/2786398.png', layout='wide', initial_sidebar_state='collapsed')
 
-st.title('Welcome to AirTab 🌎')
-st.markdown('👉 AirTab is a simple, secure platform for booking rooms in the cloud')
+st.title('Welcome to AirTabs 🌎')
+st.markdown('👉 AirTabs is a simple, secure platform for booking rooms in the cloud')
 
 with st.container():
     with st.form("sign in"):
