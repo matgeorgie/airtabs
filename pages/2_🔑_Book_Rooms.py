@@ -3,14 +3,7 @@ import mysql.connector
 import streamlit as st
 import streamlit.components.v1 as components
 
-db = mysql.connector.connect(
-    host='remotemysql.com',
-    user='gMZazGoWlk',
-    passwd='07OOXPIcI9',
-    database='gMZazGoWlk',
-    port = 3306
-)
-
+db = mysql.connector.connect(**st.secrets.db_credentials)
 
 mycursor = db.cursor()
 UID = st.session_state.get('UID', None)
