@@ -16,7 +16,7 @@ UID = st.session_state.get('UID', None)
 
 st.set_page_config(page_title='Bookings', page_icon='https://cdn-icons-png.flaticon.com/512/2786/2786398.png', layout='wide', initial_sidebar_state='collapsed')
 
-st.markdown(f"<h5 style='text-align: right; color: black; font-family: Source Sans Pro; font-weight: 600'>⭕ {st.session_state.get('name', None)}</h5>", unsafe_allow_html=True)
+st.markdown(f"<h5 style='text-align: right; color: black; font-family: Source Sans Pro; font-weight: 600'>⭕ {st.session_state.get('name', '')}</h5>", unsafe_allow_html=True)
 
 st.title('🎟️ Check Bookings')
 
